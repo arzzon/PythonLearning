@@ -23,7 +23,7 @@ class Queue(object):
         if self.size <= 0:
             print("Queue is empty!")
         else:
-            self.data.remove(0) #Data is removed from the start of the list
+            self.data.pop(0) #Data is removed from the start of the list
             self.size -= 1
 
     def peek(self):
