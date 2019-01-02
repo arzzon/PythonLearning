@@ -7,6 +7,19 @@
  *  Written:       30/12/2018
  *  Last updated:  30/12/2018
  *
+ *  TIME COMPLEXITIES:
+ *  -----------------------------------------------------------------
+ *  |   Operations  |   WorstCase   |  AverageCase  |    BestCase   |
+ *  -----------------------------------------------------------------
+ *  |    enqueue    |    bigO(1)    |     bigO(1)   |    bigO(1)    |
+ *  -----------------------------------------------------------------
+ *  |    dequeue    |    bigO(1)    |     bigO(1)   |    bigO(1)    |
+ *  -----------------------------------------------------------------
+ *  |     show      |    bigO(n)    |     bigO(n)   |    bigO(n)    |
+ *  -----------------------------------------------------------------
+ *  |     peek      |    bigO(1)    |     bigO(1)   |    bigO(1)    |
+ *  -----------------------------------------------------------------
+ *
  *  % python queue.py
  *
 ***************************************************************************** '''
@@ -20,17 +33,23 @@ class Queue(object):
         self.size += 1
 
     def dequeue(self):
-        if self.size <= 0:
+        if self.isEmpty():
             print("Queue is empty!")
         else:
-            self.data.pop(0) #Data is removed from the start of the list
             self.size -= 1
+            return self.data.pop(0) #Data is removed from the start of the list
 
     def peek(self):
         return self.data[0] #Returns data from the start of the list
 
     def show(self):
         print(self.data)
+
+    def isEmpty(self):
+        if self.size <= 0:
+            return True
+        else:
+            return False
 
 queue = Queue()
 queue.enqueue(1)

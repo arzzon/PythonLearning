@@ -23,6 +23,7 @@
  *  % python bst.py
  *
 ***************************************************************************** '''
+from queue import Queue
 class Node(object):
     def __init__(self, data):
         self.data = data
@@ -124,6 +125,20 @@ class Bst(object):
             self.getMin(node.left)
         return node
 
+    def levelOrder(self,root): #Traverses the nodes level wise
+        if not root:
+            print("Tree is empty!")
+            return
+        q = Queue()
+        q.enqueue(root)
+        while not q.isEmpty():
+            node = q.dequeue()
+            print(node.data,end=" ")
+            if node.left:
+                q.enqueue(node.left)
+            if node.right:
+                q.enqueue(node.right)
+        
 bst = Bst()
 bst.insert(5)
 bst.insert(3)
@@ -135,16 +150,19 @@ bst.insert(7)
 bst.insert(7)
 print("AFTER INSERTION INORDER")
 bst.traverse()
-print("\nPOSTORDER")
+print("\nLEVEL ORDER")
+bst.levelOrder(bst.root)
+print("\nPOST ORDER")
 bst.postOrder(bst.root)
-print("\nPREORDER")
+print("\nPRE ORDER")
 bst.preOrder(bst.root)
 bst.delete(2)
 bst.delete(6)
 bst.delete(5)
 bst.delete(9) #if element doesn't exist then nothing is removed
-print("\nINORDER")
+print("\nIN ORDER")
 bst.inOrder(bst.root)
+
 
 '''
 BST BEFORE REMOVING ELEMENTS
