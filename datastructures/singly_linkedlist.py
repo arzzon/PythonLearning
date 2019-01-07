@@ -79,9 +79,23 @@ class LinkedList(object):
     def show(self):
         tempNode = self.start
         while tempNode != None:
-            print(tempNode.data)
+            print(tempNode.data, end=" ")
             tempNode = tempNode.next
     
+    def reverse(self,node): #Reversing linkedlist using recursion
+        if not node.next:
+            self.start = node
+            return
+        self.reverse(node.next)
+        node.next.next = node
+        node.next = None #Added so that the previous start node has nextlink set to NONE
+
+    def showReverse(self,node):
+        if not node:
+            return
+        self.showReverse(node.next)
+        print(node.data,end=" ")
+
 
 linkedlist = LinkedList()
 
@@ -96,4 +110,10 @@ linkedlist.insert(5,linkedlist.size)
 linkedlist.insert(50,5)
 linkedlist.remove(7)
 linkedlist.remove(9)
+print("Show")
+linkedlist.show()
+print("\nShow Reverse")
+linkedlist.showReverse(linkedlist.start)
+linkedlist.reverse(linkedlist.start)
+print("\nAfter reversing")
 linkedlist.show()
