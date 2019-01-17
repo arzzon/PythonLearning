@@ -40,7 +40,7 @@ class Node(object):
         print("[{0},{1}]".format(self.key,self.value),end=",")
 
 class HashTable(object):
-    MAX_SIZE = 5
+    MAX_SIZE = 10
     def __init__(self):
         self.arr = [None] * self.MAX_SIZE
         self.size = 0
@@ -71,12 +71,12 @@ class HashTable(object):
     def show(self):
         print("[KEYS,VALUES]:")
         for ele in self.arr:
-            if ele == None:
+            if not ele: #ele == None
                 print(ele)
-            elif ele.next == None:
+            else:
                 node = ele
                 while(node != None):
-                    ele.show()
+                    node.show()
                     node = node.next
                 print()
         
@@ -89,12 +89,13 @@ hashObj.insert('c',52)
 hashObj.insert('d',51)
 hashObj.insert('e',7)
 hashObj.insert('aa',1)
-#hashObj.insert('f',9)
-# hashObj.insert('a',30)
-# hashObj.insert('x',40)
-# hashObj.insert('asd',90)
-# hashObj.insert('abcas',303)
-# hashObj.insert('xguydgy',70)
+hashObj.insert('f',9)
+hashObj.insert('a',30)
+hashObj.insert('x',40)
+hashObj.insert('asd',90)
+hashObj.insert('abcas',303)
+hashObj.insert('xguydgy',70)
+hashObj.insert('ag',77)
 hashObj.show()
 '''
 a 97=>2
