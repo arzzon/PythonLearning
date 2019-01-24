@@ -31,13 +31,13 @@
 ***************************************************************************** '''
 
 class Node(object):
-    def __init__(self,key=None,value=None):
+    def __init__(self,key=None,value=None): #Node stores the key,value pair and a link to the next node
         self.key = key
         self.value = value
         self.next = None
 
     def show(self):
-        print("[{0},{1}]".format(self.key,self.value),end=",")
+        print("[{0},{1}]".format(self.key,self.value),end=",")#[key,value]
 
 class HashTable(object):
     MAX_SIZE = 10
@@ -72,7 +72,7 @@ class HashTable(object):
         print("[KEYS,VALUES]:")
         for ele in self.arr:
             if not ele: #ele == None
-                print(ele)
+                print(ele)#None
             else:
                 node = ele
                 while(node != None):
@@ -98,11 +98,16 @@ hashObj.insert('xguydgy',70)
 hashObj.insert('ag',77)
 hashObj.show()
 '''
-a 97=>2
-b 3
-c 4
-d 0
-e 1
-aa 4
+[KEYS,VALUES]:
+[d,51]->[x,40]->[ag,77],
+[e,7],
+[f,9]->[asd,90],
+None
+[aa,1],
+[xguydgy,70],
+[abcas,303],
+[a,30],
+[b,15],
+[c,52],
 
 '''

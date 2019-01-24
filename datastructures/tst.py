@@ -20,7 +20,7 @@
  *  |   searching   |    bigO(n)    |  bigO(log n)  |    bigO(1)    |
  *  -----------------------------------------------------------------
  *
- *  % python tstg.py
+ *  % python tst.py
  *
 ***************************************************************************** '''
 
@@ -84,14 +84,14 @@ class Tst(object):
             return node.getValue()
 
         return value
-
-tst = Tst()
-tst.put("cat",10)
-tst.put("carrot",14)
-tst.put("jug",5)
-tst.put("bat",8)
-tst.get("cat")
-tst.get("carrot")
-tst.get("jug")
-tst.get("bat")
-tst.get("car")
+if __name__ == "__main__":
+    tst = Tst()
+    tst.put("cat",10)
+    tst.put("carrot",14)
+    tst.put("jug",5)
+    tst.put("bat",8)
+    tst.get("cat")
+    tst.get("carrot")
+    tst.get("jug")
+    tst.get("bat")
+    tst.get("car")
