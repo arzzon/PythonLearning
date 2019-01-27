@@ -20,6 +20,10 @@
  *  |   searching   |    bigO(-)    |  bigO(-)  |    bigO(-)    |
  *  -----------------------------------------------------------------
  *
+ *  MEMORY COMPLEXITY: bigO(N) 
+ *  Memory complexity depends on the number of elements stored in the 
+ *  queue or the max size of queue used in the bfs algo. 
+ *
  *  % python bfs.py
  *
 ***************************************************************************** '''

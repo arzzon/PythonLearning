@@ -137,7 +137,8 @@ class Graph(object):
             if s.isEmpty() and not verticesLeft: #Check if any other vertices are left
                 for i in range(len(state)):
                     if state[i] == -1: #If vertex is found to be unvisited
-                        s.push(self.vertices[i])     
+                        s.push(self.vertices[i])
+                        state[i] = 0     
 
 if __name__ == "__main__":
     g = Graph(7,False,True)
@@ -164,13 +165,13 @@ if __name__ == "__main__":
 
 '''
 a               b
-  .           . . .
-5   .     2 .   .   .  1
-      .   .     .     .
-        c       .       g
-      .   .     .
- 4  .    3  .   .
-  .           . .
+  .           .   .
+5   .     2 .       .  1
+      .   .           .
+        c               g
+      .   .     
+ 4  .    3  .   
+  .           . 
 d               e
               .  
             .  8
