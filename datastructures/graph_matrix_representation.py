@@ -33,7 +33,6 @@ class Graph(object):
         self.weighted = weighted
 
     def addVertex(self, id): #Stores the vertices
-        self.verticesNum += 1
         self.vertices.append(id)
 
     def getIndex(self, vertex): #Returns the index of the vertex
