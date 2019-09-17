@@ -50,7 +50,7 @@ def kmp(S,P):
             i += 1
             j += 1
 
-        if i == len(P):
+        if i == len(P): # Index of prefix table will only be equal to len(p) if a pattern has been matched otherwise it is always < len(p)
             print("Pattern found at index ",j-i)
             j = j - i + 1 #Check for more matches
             i = 0
