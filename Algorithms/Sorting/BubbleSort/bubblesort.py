@@ -3,21 +3,16 @@
  *  Language:  python3
  *
  *  Description:  Implementation of Bubble sort algorithm.
+ *  Mantra:       Bubble the largest element to up/right.
  *
- *  Written:       19/1/2019
- *  Last updated:  19/1/2019
+ *  Written:       18/10/2019
+ *  Last updated:  18/10/2019
  *
  *  TIME COMPLEXITIES:
  *  -----------------------------------------------------------------
  *  |   Operations  |   WorstCase   |  AverageCase  |    BestCase   |
  *  -----------------------------------------------------------------
- *  |   insertion   |    bigO(n)    |     bigO(-)   |    bigO(1)    |
- *  -----------------------------------------------------------------
- *  |   deletion    |    bigO(n)    |     bigO(-)   |    bigO(1)    |
- *  -----------------------------------------------------------------
- *  |   traversal   |    bigO(n)    |     bigO(n)   |    bigO(n)    |
- *  -----------------------------------------------------------------
- *  |   searching   |    bigO(n)    |     bigO(1)   |    bigO(1)    |
+ *  |   sorting     |   bigO(n^2)   |   bigO(n^2)   |    bigO(n)    |
  *  -----------------------------------------------------------------
  *
  *  % python bubblesort.py
