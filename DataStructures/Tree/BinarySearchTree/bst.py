@@ -23,7 +23,37 @@
  *  % python bst.py
  *
 ***************************************************************************** '''
-from queue import Queue
+#######
+#QUEUE#
+#######
+class Queue(object):
+    def __init__(self):
+        self.size = 0
+        self.data = []  # Data are stored in a list
+
+    def enqueue(self, data):
+        self.data.append(data)  # Data is appended to the end of the list
+        self.size += 1
+
+    def dequeue(self):
+        if self.isEmpty():
+            print("Queue is empty!")
+        else:
+            self.size -= 1
+            return self.data.pop(0)  # Data is removed from the start of the list
+
+    def peek(self):
+        return self.data[0]  # Returns data from the start of the list
+
+    def show(self):
+        print(self.data)
+
+    def isEmpty(self):
+        if self.size <= 0:
+            return True
+        else:
+            return False
+###########################
 class Node(object):
     def __init__(self, data):
         self.data = data
