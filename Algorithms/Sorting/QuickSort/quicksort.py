@@ -32,14 +32,14 @@ def Partition(arr, lb, ub):
     start = lb
     end = ub
     while start < end:
-            while pivot >= arr[start]:
-                start += 1
-            while pivot < arr[end]:
-                end -= 1
-            if start < end:
-                arr[start] += arr[end]
-                arr[end] = arr[start] - arr[end]
-                arr[start] = arr[start] - arr[end]
+        while start < len(arr) and pivot >= arr[start]:
+            start += 1
+        while end >= 0 and pivot < arr[end]:
+            end -= 1
+        if start<len(arr) and end >=0 and start < end:
+            arr[start] += arr[end]
+            arr[end] = arr[start] - arr[end]
+            arr[start] = arr[start] - arr[end]
     # Swap arr[end] and pivot
     arr[lb] = arr[end]
     arr[end] = pivot
@@ -54,6 +54,10 @@ def QuickSort(arr, lb, ub):
 if __name__ == "__main__":
     arr = [1, -1, 2, 3, 10, -10, 2, 3, 100, 5, 7]
     QuickSort(arr, 0, len(arr)-1)
+    print(arr)
+    
+    arr = [1,1]
+    QuickSort(arr, 0, len(arr) - 1)
     print(arr)
 
 '''
