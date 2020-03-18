@@ -75,11 +75,11 @@ class minHeap(object):
 
     # heapifyDown helps maintain the heap property by moving the root element to it's proper location
     # It's used when we poll the minimum element from the heap, in this case we
-    def heafifyDown(self):
+    def heapifyDown(self):
         index = 0
         while self.hasLeftChild(index):
             minIndex = self.getLeftChildIndex(index)
-            if self.hasRightChild() and self.getRightChild(index) < self.getLeftChild(index):
+            if self.hasRightChild(index) and self.getRightChild(index) < self.getLeftChild(index):
                 minIndex = self.getRightChildIndex(index)
             if self.heap[index] < self.heap[minIndex]:
                 break
@@ -97,8 +97,8 @@ class minHeap(object):
     def add(self, item):
         self.ensureExtraCapacity()
         # Directly add the new element at the end of the heap then heapifyUp to put it in correct position
-        self.size += 1
         self.heap[self.size] = item
+        self.size += 1
         self.heapifyUp()
 
     # heapifyUp helps in
@@ -111,7 +111,7 @@ class minHeap(object):
     # displayHeap prints the heap
     def displayHeap(self):
         for i in range(self.size):
-            print(self.heap[i],end=" ")
+            print(self.heap[i], end=" ")
         print()
 
 if __name__ == "__main__":
@@ -121,5 +121,9 @@ if __name__ == "__main__":
     h.add(20)
     h.add(11)
     h.add(25)
-    print(h.displayHeap())
-
+    h.add(17)
+    h.displayHeap()
+    print("Peek:", h.peek())
+    h.displayHeap()
+    print("Min:", h.poll())
+    h.displayHeap()
