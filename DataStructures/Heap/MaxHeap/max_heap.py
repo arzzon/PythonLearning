@@ -2,7 +2,7 @@
  *  Name:      Arbaaz Khan
  *  Language:  python3
  *
- *  Description:  Implementation of min-heap data structure.
+ *  Description:  Implementation of maximum heap data structure.
  *
  *  Written:       18/3/2018
  *  Last updated:  18/3/2018
@@ -26,12 +26,12 @@
  *  |  Peek/findMax |    bigO(1)    |    bigO(1)    |    bigO(1)    |
  *  -----------------------------------------------------------------
  *
- *  % python min_heap.py
+ *  % python max_heap.py
  *
 ***************************************************************************** '''
+
 import copy
-class minHeap(object):
-    #HEAP_SIZE = 10
+class maxHeap(object):
     def __init__(self, capacity = 10):
         self.capacity = capacity
         self.size = 0
@@ -39,7 +39,7 @@ class minHeap(object):
 
     # Ensure extra capacity doubles the capacity of the heap
     def ensureExtraCapacity(self):
-        if self.size == self.capacity: # If size has reached the capacity of the heap
+        if self.size == self.capacity:  # If size has reached the capacity of the heap
             tempHeap = copy.deepcopy(self.heap)
             self.capacity *= 2
             self.heap = [0 for i in range(self.capacity)]
@@ -47,18 +47,18 @@ class minHeap(object):
                 self.heap[i] = tempHeap[i]
 
     # Get parent index
-    def getParentIndex(self,index):
+    def getParentIndex(self, index):
         return (index-1)//2
 
     # checks if parent exist
-    def hasParent(self,index):
+    def hasParent(self, index):
         if self.getParentIndex(index) >= 0:
             return True
         else:
             return False
 
     # Get the parent index
-    def getParent(self,index):
+    def getParent(self, index):
         return self.heap[self.getParentIndex(index)]
 
     # Get left child index
@@ -66,19 +66,19 @@ class minHeap(object):
         return index * 2 + 1
 
     # Get right child index
-    def getRightChildIndex(self,index):
+    def getRightChildIndex(self, index):
         return index * 2 + 2
 
     # Check for left child
-    def hasLeftChild(self,index):
+    def hasLeftChild(self, index):
         return self.getLeftChildIndex(index) < self.size
 
     # Check for right child
-    def hasRightChild(self,index):
+    def hasRightChild(self, index):
         return self.getRightChildIndex(index) < self.size
 
     # Get the left child
-    def getLeftChild(self,index):
+    def getLeftChild(self, index):
         return self.heap[self.getLeftChildIndex(index)]
 
     # Get the right child
@@ -107,16 +107,16 @@ class minHeap(object):
         index = 0
         while self.hasLeftChild(index):
             minIndex = self.getLeftChildIndex(index)
-            if self.hasRightChild(index) and self.getRightChild(index) < self.getLeftChild(index):
+            if self.hasRightChild(index) and self.getRightChild(index) > self.getLeftChild(index):
                 minIndex = self.getRightChildIndex(index)
-            if self.heap[index] < self.heap[minIndex]:
+            if self.heap[index] > self.heap[minIndex]:
                 break
             else:
-                self.swap(index,minIndex)
+                self.swap(index, minIndex)
                 index = minIndex
 
     # swap function swaps values present in the given indices
-    def swap(self,index1,index2):
+    def swap(self, index1, index2):
         self.heap[index1] += self.heap[index2]
         self.heap[index2] = self.heap[index1] - self.heap[index2]
         self.heap[index1] = self.heap[index1] - self.heap[index2]
@@ -132,7 +132,7 @@ class minHeap(object):
     # heapifyUp helps in
     def heapifyUp(self):
         index = self.size - 1
-        while self.hasParent(index) and self.getParent(index) > self.heap[index]:
+        while self.hasParent(index) and self.getParent(index) < self.heap[index]:
             self.swap(index, self.getParentIndex(index))
             index = self.getParentIndex(index)
 
@@ -143,7 +143,7 @@ class minHeap(object):
         print()
 
 if __name__ == "__main__":
-    h = minHeap()
+    h = maxHeap()
     h.add(15)
     h.add(17)
     h.add(20)
@@ -151,7 +151,5 @@ if __name__ == "__main__":
     h.add(25)
     h.add(17)
     h.displayHeap()
-    print("Peek:", h.peek())
-    h.displayHeap()
-    print("Min:", h.poll())
+    print("Max:", h.poll())
     h.displayHeap()
