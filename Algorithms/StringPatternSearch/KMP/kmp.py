@@ -66,4 +66,3 @@ if __name__ == "__main__":
     S="AAAAvAAhABAAAABkAAAAB"
     P="AAAAB"
     kmp(S,P)
-    

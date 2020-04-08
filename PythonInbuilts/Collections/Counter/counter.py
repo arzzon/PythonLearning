@@ -15,5 +15,4 @@ if __name__ == "__main__":
     c = collections.Counter(s)
     print(c['k'])
     print(sorted(c.keys()))
-
     print(c.__len__())
