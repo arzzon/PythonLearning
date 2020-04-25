@@ -19,6 +19,6 @@ class Square(Rectangle):
     print(self.side*self.side," is area of square")
 
 s = Square(4)
-r = Rectangle(2,4)
+r = Rectangle(2, 4)
 s.getArea()
 r.getArea()
