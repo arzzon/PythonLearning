@@ -40,3 +40,9 @@ if __name__ == "__main__":
         dd[i] += 1
     for key, value in dd.items():
         print(key, ":", value)
+
+    print()
+    print("#Deleting an element")
+    del dd[1]
+    for key, value in dd.items():
+        print(key, ":", value)

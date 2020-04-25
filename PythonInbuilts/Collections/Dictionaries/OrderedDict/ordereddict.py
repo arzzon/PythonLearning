@@ -73,3 +73,9 @@ if __name__ == "__main__":
     print("item removed", od.pop("third"))  # od.popitem()
     for key, value in od.items():
         print(key, ':', value)
+
+    print()
+    print("#Deleting an element")
+    del od["fourth"]
+    for key, value in od.items():
+        print(key, ":", value)
