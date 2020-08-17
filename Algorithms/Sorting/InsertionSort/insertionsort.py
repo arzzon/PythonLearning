@@ -20,7 +20,12 @@
  *    InsertionSort(arr):
  *      1. Start from the 2nd element considering the 1st element is in sorted part and already sorted.
  *      2. Choose one element from the unsorted part of the array
- *      3. Compare it with elements in the sorted part & shift them right till we get the correct place for the chosen element.
+ *      3. Compare it(key) with elements in the sorted part
+ *         3.1. If the key is less than the element in the sorted part.
+ *              3.1.1. Move the element in the sorted part one place to the right.
+ *              3.1.2. Move left and compare that with the key.
+ *         3.2. If the key is greater than or equal to the element in consideration in the sorted part.
+ *              3.2.1. stop and go to 4.
  *      4. Insert the chosen element in it's correct place.
  *      5. Repeat 2-5 till we have all sorted.
  *
@@ -36,7 +41,7 @@ def InsertionSort(arr):
     for i in range(1, l):
         key = arr[i]
         j = i
-        while arr[j-1] > key and j >= 1:
+        while j >= 1 and arr[j-1] > key:
             arr[j] = arr[j-1]
             j -= 1
         arr[j] = key
